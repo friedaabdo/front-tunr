@@ -45,7 +45,7 @@ const Form = (props) => {
 				type='text'
 				id='form-title'
 				name='formTime'
-				value={formData.title}
+				value={formData.time}
 				onChange={handleChange}
 			/>
 			<br />
