@@ -3,14 +3,13 @@ import React from 'react';
 
 //Create Playlist Component
 const Playlist = (props) => {
-	const playlistSongs = () => {
+	const playlistSongs = () => (
 		<div id='song-list'>
-			{props.songs.map((song) => {
+			{props.songs.map((song) => (
 				<article>
-					<section className='song-title'>{song.title}</section> //display song
-					title
-					<section>{song.time}</section> //display song time length
-					<section>{song.artist}</section> //display song artist
+					<section className='song-title'>{song.title}</section> 
+					<section>{song.time}</section> 
+					<section>{song.artist}</section> 
 					<section
 						className='delete'
 						onClick={() => {
@@ -19,11 +18,10 @@ const Playlist = (props) => {
 						}}>
 						X
 					</section>
-					//remove song from playlist
-				</article>;
-			})}
-		</div>;
-	};
+				</article>
+            ))}
+		</div>
+    );
 
 	return props.songs.length > 0 ? playlistSongs() : <h1>Add Some Songs!</h1>;
 };
