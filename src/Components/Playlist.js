@@ -5,8 +5,9 @@ import React from "react";
 //Create Playlist Component
 const Playlist = (props) => {
 
-	
-    let songs = props.songs.data;
+    let songs = props.songs.data
+    console.log(songs)
+
     
     
 	return ( <>
