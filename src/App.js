@@ -10,7 +10,7 @@ function App() {
  const [songs, setSongs] = useState([])
 
  const getSongs = () => {
-   fetch(url + '/song/')
+   fetch(url + '/song')
    .then(res => res.json())
    .then(data => setSongs(data))
  }
