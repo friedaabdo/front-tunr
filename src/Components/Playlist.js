@@ -1,8 +1,9 @@
 //import React
-import React from 'react';
+import React from "react";
 
 //Create Playlist Component
 const Playlist = (props) => {
+
 	
     let songs = props.songs.data;
     
@@ -28,6 +29,7 @@ const Playlist = (props) => {
         }
     </>
     );
+
 };
 
 export default Playlist;
