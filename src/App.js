@@ -1,24 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from "react";
+import "./App.css";
+import Favorites from "./Components/Favorites";
 
 function App() {
+ const url = 'http://localhost:3500'
+
+ const [songs, setSongs] = useState([])
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Tunr.</h1>
+      <h2>For all your playlist needs</h2>
+      <Favorites />
     </div>
   );
 }
