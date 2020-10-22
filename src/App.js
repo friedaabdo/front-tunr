@@ -13,17 +13,17 @@ function App() {
 
 	//Empty song for Form
 	const emptySong = {
-		Title: '',
-		Artist: '',
-		Time: '',
+		title: '',
+		artist: '',
+		time: '',
 	};
 
 	//Fetch to get songs from backend
 	const getSongs = () => {
 		fetch(url + '/song/')
 			.then((res) => res.json())
-      .then((data) => setSongs(data));
-  };
+			.then((data) => setSongs(data));
+	};
 
 	//Get songs on page load
 	React.useEffect(() => {
@@ -32,7 +32,8 @@ function App() {
 
 	//handleCreate Function for creating songs in playlist
 	const handleCreate = (newSong) => {
-		fetch(url + '/song/', {
+    console.log(newSong)
+    fetch(url + '/song/', {
 			method: 'post',
 			headers: {
 				'Content-Type': 'application/json',
@@ -76,7 +77,11 @@ function App() {
 			</header>
 			<div id='playlist-div'>
 				<h1 id='playlist-head'>Playlist 1</h1>
-				<Playlist songs={songs} removeSong={removeSong} />
+				<Route
+					exact
+					path='/'
+					render={(rp) => <Playlist {...rp} songs={songs} removeSong={removeSong} />}
+				/>
 			</div>
 			{/* <Route path='/favorites'>
 				<Favorites faves={faves} onFaveToggle={handleFaveToggle} />
@@ -85,7 +90,12 @@ function App() {
 				exact
 				path='/'
 				render={(rp) => (
-					<Form label='create' {...rp} song={emptySong} handleSubmit={handleCreate} />
+					<Form
+						{...rp}
+						label='create'
+						song={emptySong}
+						handleSubmit={handleCreate}
+					/>
 				)}
 			/>
 		</div>

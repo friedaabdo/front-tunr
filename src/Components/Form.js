@@ -9,6 +9,7 @@ const Form = (props) => {
 	//handleSubmit function to lift data to App
 	const handleSubmit = (event) => {
 		event.preventDefault(); //Prevent Form from Refreshing
+		console.log('this is formData:', formData)
 		props.handleSubmit(formData); //Submit to App's desired function
 		props.history.push('/'); //Push back up to display section
 	};
@@ -19,32 +20,32 @@ const Form = (props) => {
 	};
 	return (
 		<form onSubmit={handleSubmit}>
-			<label for='formTitle'>Title</label>
+			<label for='title'>Title</label>
 			<br />
 			<input
 				type='text'
 				id='form-title'
-				name='formTitle'
+				name='title'
 				value={formData.title}
 				onChange={handleChange}
 			/>
 			<br />
-			<label for='formArtist'>Artist</label>
+			<label for='artist'>Artist</label>
 			<br />
 			<input
 				type='text'
 				id='form-artist'
-				name='formArtist'
+				name='artist'
 				value={formData.artist}
 				onChange={handleChange}
 			/>
 			<br />
-			<label for='formTime'>Time</label>
+			<label for='time'>Time</label>
 			<br />
 			<input
 				type='text'
 				id='form-title'
-				name='formTime'
+				name='time'
 				value={formData.time}
 				onChange={handleChange}
 			/>
