@@ -22,8 +22,8 @@ function App() {
 	const getSongs = () => {
 		fetch(url + '/song/')
 			.then((res) => res.json())
-			.then((data) => setSongs(data));
-	};
+      .then((data) => setSongs(data));
+  };
 
 	//Get songs on page load
 	React.useEffect(() => {
