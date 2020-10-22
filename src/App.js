@@ -53,18 +53,6 @@ function App() {
 		});
 	};
 
-	//some state here to grab favorites
-	/* const [faves, setFaves] = React.useState([]);
-	const handleFaveToggle = (song) => {
-		const newFaves = [...faves];
-		const favorites = newFaves.indexOf(song);
-		if (favorites === -1) {
-			newFaves.push(song);
-		} else {
-			newFaves.splice(favorites, 1);
-		}
-		setFaves(newFaves);
-	}; */
 
 	//Return App structure
 	return (
