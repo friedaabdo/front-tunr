@@ -1,13 +1,83 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+h1 {
+  text-align: left;
+  text-transform: uppercase;
+}
+
+h2 {
+  text-align: right;
+  font-size: 15px;
+  display: block;
+  border-bottom-style: solid;
+  border-color: #a93e55;
+  padding: 10px;
+}
+
+label {
+  text-align: left;
+  margin-left: 10px;
+}
+
+form {
+  margin-top: 450px;
+  display: grid;
+  grid-template-columns: 1fr, 1fr, 1fr, 1fr;
+  grid-template-rows: 1fr, 1fr, 1fr, 1fr;
+  grid-template-areas:
+    "title . . ."
+    "titleBox titleBox titleBox titleBox"
+    "artist . . ."
+    "artistBox artistBox artistBox artistBox"
+    "time . . ."
+    "timeBox timeBox timeBox timeBox"
+    "songButton songButton songButton songButton";
+}
+
+#form-title {
+  grid-area: titleBox;
+  margin: 5px;
+}
+#title {
+  grid-area: title;
+  text-transform: uppercase;
+}
+
+#form-artist {
+  grid-area: artistBox;
+  margin: 5px;
+}
+#artist {
+  grid-area: artist;
+  text-transform: uppercase;
+}
+
+#form-time {
+  grid-area: timeBox;
+  margin: 5px;
+}
+
+#time {
+  grid-area: time;
+  text-transform: uppercase;
+}
+
+#createButton {
+  background-color: #a93e55;
+  color: white;
+  grid-area: songButton;
+  border-radius: 5px;
+  margin: 5px;
 }
