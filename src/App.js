@@ -17,6 +17,7 @@ function App() {
 
 
   return (
+
     <div className="App">
       <h1>Tunr.</h1>
       <h2>For all your playlist needs</h2>
@@ -24,6 +25,7 @@ function App() {
       
     </div>
   );
+
 }
 
 export default App;
