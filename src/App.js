@@ -1,51 +1,89 @@
-import React, {useState} from "react";
-import "./App.css";
-import Favorites from "./Components/Favorites";
-import {Route, Link, Switch} from 'react-router-dom'
-import Form from "./Components/Form"
+import React, { useState } from 'react';
+import './App.css';
+import Favorites from './Components/Favorites';
+import { Route, Link, Switch } from 'react-router-dom';
+import Playlist from './Components/Playlist';
+import Form from './Components/Form';
 
 function App() {
- const url = 'http://localhost:3500'
+	// URL for backend data
+	const url = 'http://localhost:3500';
+	// State to hold song list
+	const [songs, setSongs] = useState([]);
 
- const [songs, setSongs] = useState([])
+	//Empty song for Form
+	const emptySong = {
+		Title: '',
+		Artist: '',
+		Time: '',
+	};
 
- const getSongs = () => {
-   fetch(url + '/song/')
-   .then(res => res.json())
-   .then(data => setSongs(data))
- }
+	//Fetch to get songs from backend
+	const getSongs = () => {
+		fetch(url + '/song/')
+			.then((res) => res.json())
+			.then((data) => setSongs(data));
+	};
 
-const emptySong = {
-  Title: '',
-  Artist: '',
-  Time: ''
-}
+	//Get songs on page load
+	React.useEffect(() => {
+		getSongs();
+	}, []);
 
- //some state here to grab favorites
- const [faves, setFaves] = React.useState([])
- const handleFaveToggle = (song) => {
-   const newFaves = [...faves]
- const favorites = newFaves.indexOf(song)
- if (favorites === -1) {
-   newFaves.push(song)
- } else {
-   newFaves.splice(favorites,1)
- }
- setFaves(newFaves)
- }
- 
+	//handleCreate Function for creating songs in playlist
+	const handleCreate = (newSong) => {
+		fetch(url + '/song/', {
+			method: 'post',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(newDog),
+		});
+	};
 
-  return (
+	//deleteSong Function for deleting a song from playlist
+	const removeSong = (song) => {
+		fetch(url + '/song/' + song._id, {
+			method: 'delete',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		}).then(() => {
+			getDogs();
+		});
+	};
 
-    <div className="App">
-      <h1>Tunr.</h1>
-      <h2>For all your playlist needs</h2>
+	//some state here to grab favorites
+	const [faves, setFaves] = React.useState([]);
+	const handleFaveToggle = (song) => {
+		const newFaves = [...faves];
+		const favorites = newFaves.indexOf(song);
+		if (favorites === -1) {
+			newFaves.push(song);
+		} else {
+			newFaves.splice(favorites, 1);
+		}
+		setFaves(newFaves);
+	};
 
-      <Form emptySong={emptySong}/>
-    <Route path='/favorites'><Favorites faves={faves} onFaveToggle={handleFaveToggle}/></Route>
-    </div>
-  );
-
+	//Return App structure
+	return (
+		<div className='App'>
+			<header>
+				<h1 id='head-title'>Tunr.</h1>
+				<h2 id='head-subtitle'>For all your playlist needs</h2>
+				<hr id='red-divider' />
+			</header>
+			<div id='playlist-div'>
+				<h1 id='playlist-head'>Playlist 1</h1>
+				<Playlist songs={songs} removeSong={removeSong} />
+			</div>
+			<Route path='/favorites'>
+				<Favorites faves={faves} onFaveToggle={handleFaveToggle} />
+			</Route>
+			<Form {...rp} label='create' song={emptySong} handleSubmit={handleCreate}/>
+		</div>
+	);
 }
 
 export default App;
