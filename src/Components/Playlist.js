@@ -1,10 +1,13 @@
 //import React
-import React from 'react';
+
+import React from "react";
 
 //Create Playlist Component
 const Playlist = (props) => {
+
     let songs = props.songs.data
     console.log(songs)
+
     
     
 	return ( <>
@@ -22,12 +25,15 @@ const Playlist = (props) => {
 								}}>
 								X
 							</section>
+<FaveIcon />
 						</article>
 					))}
 				</div>) : <h1>Add Some Songs!</h1>
         }
     </>
+
     );
+
 };
 
 export default Playlist;

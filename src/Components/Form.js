@@ -1,10 +1,11 @@
 //Import React
-import React from 'react';
+import React from "react";
 
 //Create Form Component
 const Form = (props) => {
-	//state for formData
-	const [formData, setFormData] = React.useState(props.song);
+  //state for formData
+  const [formData, setFormData] = React.useState(props.song);
+
 
 	//handleSubmit function to lift data to App
 	const handleSubmit = (event) => {
@@ -53,6 +54,7 @@ const Form = (props) => {
 			<input type='submit' value={props.label} />
 		</form>
 	);
+
 };
 
 export default Form;
