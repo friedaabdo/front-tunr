@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import './App.css';
 //import Favorites from './Components/Favorites';
-//import { Route, Link, Switch } from 'react-router-dom';
+import { Route, Link, Switch } from 'react-router-dom';
 import Playlist from './Components/Playlist';
 import Form from './Components/Form';
 
 function App() {
 	// URL for backend data
-	const url = 'https://tunr1.herokuapp.com/';
+	const url = 'https://tunr1.herokuapp.com';
 	// State to hold song list
 	const [songs, setSongs] = useState([]);
 
@@ -81,10 +81,12 @@ function App() {
 			{/* <Route path='/favorites'>
 				<Favorites faves={faves} onFaveToggle={handleFaveToggle} />
 			</Route> */}
-			<Form
-				label='create'
-				song={emptySong}
-				handleSubmit={handleCreate}
+			<Route
+				exact
+				path='/'
+				render={(rp) => (
+					<Form label='create' {...rp} song={emptySong} handleSubmit={handleCreate} />
+				)}
 			/>
 		</div>
 	);
