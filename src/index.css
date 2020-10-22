@@ -15,16 +15,21 @@ code {
 h1 {
   text-align: left;
   text-transform: uppercase;
+  font-size: 40px;
 }
 
 h2 {
   text-align: right;
-  font-size: 15px;
+  font-size: 12px;
   text-transform: uppercase;
 
   border-bottom-style: solid;
   border-color: #a93e55;
   padding: 5px;
+}
+
+hr {
+  display: none;
 }
 
 #playlist-head {
