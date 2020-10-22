@@ -1,6 +1,7 @@
 //import React
 
 import React from "react";
+import FaveIcon from './FaveIcon'
 
 //Create Playlist Component
 const Playlist = (props) => {
