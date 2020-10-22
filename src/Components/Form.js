@@ -18,7 +18,7 @@ const Form = (props) => {
 		setFormData({ ...formData, [event.target.name]: event.target.value });
 	};
 	return (
-		<form>
+		<form onSubmit={handleSubmit}>
 			<label for='formTitle'>Title</label>
 			<br />
 			<input
@@ -48,7 +48,6 @@ const Form = (props) => {
 				value={formData.time}
 				onChange={handleChange}
 			/>
-			<br />
 			<input type='submit' value='Add New Song' />
 		</form>
 	);

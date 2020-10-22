@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import './App.css';
-import Favorites from './Components/Favorites';
-import { Route, Link, Switch } from 'react-router-dom';
+//import Favorites from './Components/Favorites';
+//import { Route, Link, Switch } from 'react-router-dom';
 import Playlist from './Components/Playlist';
 import Form from './Components/Form';
 
 function App() {
 	// URL for backend data
-	const url = 'http://localhost:3500';
+	const url = 'https://tunr1.herokuapp.com/';
 	// State to hold song list
 	const [songs, setSongs] = useState([]);
 
@@ -37,7 +37,7 @@ function App() {
 			headers: {
 				'Content-Type': 'application/json',
 			},
-			body: JSON.stringify(newDog),
+			body: JSON.stringify(newSong),
 		});
 	};
 
@@ -49,12 +49,12 @@ function App() {
 				'Content-Type': 'application/json',
 			},
 		}).then(() => {
-			getDogs();
+			getSongs();
 		});
 	};
 
 	//some state here to grab favorites
-	const [faves, setFaves] = React.useState([]);
+	/* const [faves, setFaves] = React.useState([]);
 	const handleFaveToggle = (song) => {
 		const newFaves = [...faves];
 		const favorites = newFaves.indexOf(song);
@@ -64,7 +64,7 @@ function App() {
 			newFaves.splice(favorites, 1);
 		}
 		setFaves(newFaves);
-	};
+	}; */
 
 	//Return App structure
 	return (
@@ -78,10 +78,14 @@ function App() {
 				<h1 id='playlist-head'>Playlist 1</h1>
 				<Playlist songs={songs} removeSong={removeSong} />
 			</div>
-			<Route path='/favorites'>
+			{/* <Route path='/favorites'>
 				<Favorites faves={faves} onFaveToggle={handleFaveToggle} />
-			</Route>
-			<Form {...rp} label='create' song={emptySong} handleSubmit={handleCreate}/>
+			</Route> */}
+			<Form
+				label='create'
+				song={emptySong}
+				handleSubmit={handleCreate}
+			/>
 		</div>
 	);
 }
