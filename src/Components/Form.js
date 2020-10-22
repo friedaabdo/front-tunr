@@ -8,7 +8,6 @@ const Form = (props) => {
 
   //handleSubmit function to lift data to App
   const handleSubmit = (event) => {
-    event.preventDefault(); //Prevent Form from Refreshing
     console.log("this is formData:", formData);
     props.handleSubmit(formData); //Submit to App's desired function
     props.history.push("/"); //Push back up to display section

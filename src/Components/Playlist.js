@@ -1,18 +1,17 @@
 //import React
 
-import React from "react";
-import FaveIcon from './FaveIcon'
+import React from 'react';
+import FaveIcon from './FaveIcon';
 
 //Create Playlist Component
 const Playlist = (props) => {
+	let songs = props.songs.data;
+	console.log(songs);
 
-    let songs = props.songs.data
-    console.log(songs)
-
-    
-    
-	return ( <>
-		{songs ? (<div id='song-list'>
+	return (
+		<>
+			{songs ? (
+				<div id='song-list'>
 					{songs.map((song) => (
 						<article>
 							<section className='song-title'>{song.title}</section>
@@ -26,15 +25,15 @@ const Playlist = (props) => {
 								}}>
 								X
 							</section>
-<FaveIcon />
+							<FaveIcon />
 						</article>
 					))}
-				</div>) : <h1>Add Some Songs!</h1>
-        }
-    </>
-
-    );
-
+				</div>
+			) : (
+				<h1>Add Some Songs!</h1>
+			)}
+		</>
+	);
 };
 
 export default Playlist;
